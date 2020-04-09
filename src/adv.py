@@ -52,33 +52,39 @@ player = Player(room['outside'])
 #
 # If the user enters "q", quit the game.
 
-print(player.location.name)
-print(player.location.description)
+print(player.location)
 print("Which direction do you choose..?")
 
-direction = str(input("[w] North, [d] East, [s] South, [a] West, [q] Quit\n"))
+direction = str(input("[n] North, [e] East, [s] South, [w] West, [q] Quit\n"))
 
 while not direction == 'q':
-    if direction == 'w':
-        player.location = player.location.n_to
-        print(player.location.name)
-        print(player.location.description)
+    if direction == 'n':
+        if hasattr(player.location, 'n_to'):
+            player.location = player.location.n_to
+            print(player.location)
+        else:
+            print("The path seems to end here, time to look for another way..")
 
-    if direction == 'd':
-        player.location = player.location.e_to
-        print(player.location.name)
-        print(player.location.description)
-    
+    if direction == 'e':
+        if hasattr(player.location, 'e_to'):
+            player.location = player.location.e_to
+            print(player.location)
+        else:
+            print("To the east the dropoff is steep and makes you dizzy, you step back from the ledge..")
+
     if direction == 's':
-        player.location = player.location.s_to
-        print(player.location.name)
-        print(player.location.description)
+        if hasattr(player.location, 's_to'):
+            player.location = player.location.s_to
+            print(player.location)
+        else:
+            print("The way is barred, perhaps another direction?")
 
-    if direction == 'a':
-        player.location = player.location.w_to
-        print(player.location.name)
-        print(player.location.description)
-
-
-    direction = str(input("[w] North, [d] East, [s] South, [a] West, [q] Quit\n"))
+    if direction == 'w':
+        if hasattr(player.location, 'w_to'):
+            player.location = player.location.w_to
+            print(player.location)
+        else:
+            print("There's a feeling you get as you look to the west, and your spirit calls for leaving..")
+    
+    direction = str(input("[n] North, [e] East, [s] South, [w] West, [q] Quit\n"))
 
