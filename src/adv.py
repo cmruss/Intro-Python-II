@@ -39,7 +39,10 @@ room['treasure'].s_to = room['narrow']
 # Make a new player object that is currently in the 'outside' room.
 from player import Player
 
-player = Player(room['outside'])
+player = Player(room['outside'], '')
+
+while player.name == '':
+    player.name = str(input("What is your name traveller?\n"))
 
 # Write a loop that:
 #
@@ -52,7 +55,8 @@ player = Player(room['outside'])
 #
 # If the user enters "q", quit the game.
 
-print(player.location)
+
+print(player)
 print("Which direction do you choose..?")
 
 direction = str(input("[n] North, [e] East, [s] South, [w] West, [q] Quit\n"))
@@ -61,28 +65,28 @@ while not direction == 'q':
     if direction == 'n':
         if hasattr(player.location, 'n_to'):
             player.location = player.location.n_to
-            print(player.location)
+            print(player)
         else:
             print("The path seems to end here, time to look for another way..")
 
     if direction == 'e':
         if hasattr(player.location, 'e_to'):
             player.location = player.location.e_to
-            print(player.location)
+            print(player)
         else:
             print("To the east the dropoff is steep and makes you dizzy, you step back from the ledge..")
 
     if direction == 's':
         if hasattr(player.location, 's_to'):
             player.location = player.location.s_to
-            print(player.location)
+            print(player)
         else:
             print("The way is barred, perhaps another direction?")
 
     if direction == 'w':
         if hasattr(player.location, 'w_to'):
             player.location = player.location.w_to
-            print(player.location)
+            print(player)
         else:
             print("There's a feeling you get as you look to the west, and your spirit calls for leaving..")
     

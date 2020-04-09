@@ -2,5 +2,8 @@
 # currently.
 
 class Player:
-    def __init__(self, location):
+    def __init__(self, location, name):
         self.location = location
+        self.name = name
+    def __str__(self):
+        return f"{self.name} {self.location}"
