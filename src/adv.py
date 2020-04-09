@@ -55,9 +55,7 @@ while player.name == '':
 #
 # If the user enters "q", quit the game.
 
-
 print(player)
-print("Which direction do you choose..?")
 
 direction = str(input("[n] North, [e] East, [s] South, [w] West, [q] Quit\n"))
 
