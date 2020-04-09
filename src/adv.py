@@ -52,3 +52,33 @@ player = Player(room['outside'])
 #
 # If the user enters "q", quit the game.
 
+print(player.location.name)
+print(player.location.description)
+print("Which direction do you choose..?")
+
+direction = str(input("[w] North, [d] East, [s] South, [a] West, [q] Quit\n"))
+
+while not direction == 'q':
+    if direction == 'w':
+        player.location = player.location.n_to
+        print(player.location.name)
+        print(player.location.description)
+
+    if direction == 'd':
+        player.location = player.location.e_to
+        print(player.location.name)
+        print(player.location.description)
+    
+    if direction == 's':
+        player.location = player.location.s_to
+        print(player.location.name)
+        print(player.location.description)
+
+    if direction == 'a':
+        player.location = player.location.w_to
+        print(player.location.name)
+        print(player.location.description)
+
+
+    direction = str(input("[w] North, [d] East, [s] South, [a] West, [q] Quit\n"))
+
